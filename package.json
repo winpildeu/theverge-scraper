@@ -1,0 +1,26 @@
+{
+  "name": "theverge-scraper",
+  "version": "1.0.0",
+  "description": "A theVerge website scraper using cheerio and mongoose",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/winpildeu/theverge-scraper.git"
+  },
+  "author": "Winfield H.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/winpildeu/theverge-scraper/issues"
+  },
+  "homepage": "https://github.com/winpildeu/theverge-scraper#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^5.4.3"
+  }
+}
