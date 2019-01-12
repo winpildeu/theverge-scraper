@@ -1,21 +1,23 @@
 // Import the NPM modules needed
 const express = require("express");
 const exphbs = require("express-handlebars");
-// Import mongoose and set the DB
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/scraper");
+
 // Import axios for ajax requests
 const axios = require("axios");
 // Import morgan for loggin HTTP data
 const logger = require("morgan");
 
 // Setup the default port
-let PORT = process.env.PORT || 8080;
+let PORT = process.env.PORT || 3000;
 
 // Start up express
 const app = express();
 
 // Connect to the MongoDB database
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scraper";
+mongoose.connect(MONGODB_URI);
+
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", function() {
@@ -41,10 +43,8 @@ app.set("view engine", "handlebars");
 // ==================================================================
 
 // Import routes and give the server access to them.
-const routes = require("./routes/routes");
-
-app.use('/', routes);
-app.use('/test', routes);
+const routes = require("./routes");
+app.use(routes);
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
