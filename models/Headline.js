@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 // Save a reference to the Schema constructor
-var Schema = mongoose.Schema;
+let Schema = mongoose.Schema;
 
 // Define what goes in the headline model thru a schema
 let headlineSchema = new Schema({
